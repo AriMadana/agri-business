@@ -1,2 +1,0 @@
-# agri-business
-Agriculture Business
