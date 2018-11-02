@@ -1,3 +1,11 @@
+<?php
+  include 'includes/init.php';
+  if($_SESSION['user_id'] == null) {
+    header('Location: sign-in.php');
+  } else {
+    $user_infos = $mm_admin_class -> user_info_from_userid($_SESSION['user_id']);
+    $image_prof = $user_infos['admin_pf'];
+?>
 <!doctype html>
 <html lang="en">
   <head>

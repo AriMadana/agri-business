@@ -1,8 +1,8 @@
 <?php
 
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','mmhs_service');
+define('DB_HOST','mmhighschool.ml');
+define('DB_USER','mmhighschool_EtheralS');
+define('DB_PASS','EtherealS');
+define('DB_NAME','mmhighschool_agri_business');
 
 ?>

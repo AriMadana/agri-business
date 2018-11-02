@@ -2,8 +2,8 @@
 
 class MM_Admin_Class extends Db_object {
 
-	protected static $db_table = "mmhs_admin";
-	protected static $db_fields = array('admin_id', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active', 'admin_school');
+	protected static $db_table = "ab_admin";
+	protected static $db_fields = array('admin_id', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active');
 
 	public $admin_id;
 	public $admin_fname;
@@ -16,7 +16,6 @@ class MM_Admin_Class extends Db_object {
 	public $admin_phone;
 	public $admin_address;
 	public $admin_active;
-	public $admin_school;
 
 	public function user_match($email, $password) {
 		global $database;

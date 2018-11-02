@@ -13,9 +13,6 @@ require_once('functions.php');
 require_once('database.php');
 
 $mm_admin_class = new MM_Admin_Class();
-$mm_stu_list_class = new MM_Stu_List_Class();
-$mm_acdm_class = new MM_Acdm_Class();
-$mm_stu_list_and_acdm_class = new MM_Stu_list_And_Acdm_Class();
 // $mm_teacher_class = new MM_Teacher_Class();
 // $mm_student_class = new MM_Student_Class();
 // $mm_grade_class = new MM_Grade_Class();
