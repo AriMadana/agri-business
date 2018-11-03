@@ -22,7 +22,11 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/css/theme.min.css">
-
+    <style>
+    .agri-color-bg {
+      background-color: #009900;
+    }
+    </style>
     <title>Dashkit</title>
   </head>
   <body>
@@ -39,7 +43,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand mr-auto" href="index.html">
-          <img src="assets/img/logo.svg" alt="..." class="navbar-brand-img">
+          <img src="assets/img/agri-business.png" alt="..." class="navbar-brand-img">
         </a>
 
         <!-- Form -->
@@ -798,832 +802,346 @@
     <div class="main-content">
 
       <!-- HEADER -->
-      <div class="header bg-dark pb-5">
-        <div class="container">
+      <div class="header" style="margin-top: 60px;">
+
+        <!-- Image -->
+        <!-- <img src="assets/img/covers/profile-cover-5.jpg" class="header-img-top" alt="..."> -->
+
+        <div class="container-fluid">
 
           <!-- Body -->
-          <div class="header-body">
+          <div class="header-body mt--5 mt-md--6">
             <div class="row align-items-end">
-              <div class="col">
+              <div class="col-auto">
+
+                <!-- Avatar -->
+                <div class="avatar avatar-xxl header-avatar-top">
+                  <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle border border-body">
+                </div>
+
+              </div>
+              <div class="col mb-3 ml--3 ml-md--2">
 
                 <!-- Pretitle -->
-                <h6 class="header-pretitle text-secondary">
-                  Overview
+                <h6 class="header-pretitle">
+                  Members
                 </h6>
 
                 <!-- Title -->
-                <h1 class="header-title text-white">
-                  Performance
+                <h1 class="header-title">
+                  Dianna Smiley
                 </h1>
 
               </div>
-              <div class="col-auto">
+              <div class="col-12 col-md-auto mt-2 mt-md-0 mb-md-3">
+
+                <!-- Button -->
+                <!-- <a href="#!" class="agri-color-bg btn btn-primary d-block d-md-inline-block">
+                  Edit Photo
+                </a> -->
+
+              </div>
+            </div> <!-- / .row -->
+            <div class="row align-items-center">
+              <div class="col">
 
                 <!-- Nav -->
-                <ul class="nav nav-tabs header-tabs">
-                  <li class="nav-item" data-toggle="chart" data-target="#headerChart" data-update='{"data":{"datasets":[{"data":[0,10,5,15,10,20,15,25,20,30,25,40]}]}}' data-prefix="$" data-suffix="k">
-                    <a href="#" class="nav-link text-center active" data-toggle="tab">
-                      <h6 class="header-pretitle text-secondary">
-                        Earnings
-                      </h6>
-                      <h3 class="text-white mb-0">
-                        $19.2k
-                      </h3>
+                <ul class="nav nav-tabs nav-overflow header-tabs">
+                  <li class="nav-item">
+                    <a href="profile-groups.html" class="nav-link active">
+                      Farms
                     </a>
                   </li>
-                  <li class="nav-item" data-toggle="chart" data-target="#headerChart" data-update='{"data":{"datasets":[{"data":[50,75, 35,25,55,87,67,53,25,80,87,45]}]}}' data-prefix="" data-suffix="k">
-                    <a href="#" class="nav-link text-center" data-toggle="tab">
-                      <h6 class="header-pretitle text-secondary">
-                        Sessions
-                      </h6>
-                      <h3 class="text-white mb-0">
-                        92.1k
-                      </h3>
-                    </a>
-                  </li>
-                  <li class="nav-item" data-toggle="chart" data-target="#headerChart" data-update='{"data":{"datasets":[{"data":[40,57,25,50,57,32,46,28,59,34,52,48]}]}}' data-prefix="" data-suffix="%">
-                    <a href="#" class="nav-link text-center" data-toggle="tab">
-                      <h6 class="header-pretitle text-secondary">
-                        Bounce
-                      </h6>
-                      <h3 class="text-white mb-0">
-                        50.2%
-                      </h3>
+                  <li class="nav-item">
+                    <a href="profile-projects.html" class="nav-link">
+                      Setting
                     </a>
                   </li>
                 </ul>
 
               </div>
-            </div> <!-- / .row -->
+            </div>
           </div> <!-- / .header-body -->
 
-          <!-- Footer -->
-          <div class="header-footer">
+        </div>
+      </div>
 
-            <!-- Chart -->
-            <div class="chart">
-              <canvas id="headerChart" class="chart-canvas"></canvas>
-            </div>
+      <!-- CONTENT -->
+      <div class="container-fluid">
+        <div class="row mb-4">
+          <div class="col">
+
+            <!-- Form -->
+            <form>
+              <div class="input-group input-group-rounded input-group-merge">
+                <input type="text" class="form-control form-control-prepended search" placeholder="Search">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <span class="fe fe-search"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
 
           </div>
-
-        </div> <!-- / .container -->
-      </div> <!-- / .header -->
-
-      <!-- CARDS -->
-      <div class="container mt--6">
-        <div class="row">
-          <div class="col-12 col-xl-8">
-
-            <!-- Orders -->
-            <div class="card">
-              <div class="card-header">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h4 class="card-header-title">
-                      Orders
-                    </h4>
-
-                  </div>
-                  <div class="col-auto mr--3">
-
-                    <!-- Caption -->
-                    <span class="text-muted">
-                      Show affiliate:
-                    </span>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Toggle -->
-                    <div class="custom-control custom-checkbox-toggle">
-                      <input type="checkbox" class="custom-control-input" id="cardToggle" data-toggle="chart" data-target="#ordersChart" data-add='{"data":{"datasets":[{"data":[15,10,20,12,7,0,8,16,18,16,10,22],"backgroundColor":"#d2ddec","label":"Affiliate"}]}}'>
-                      <label class="custom-control-label" for="cardToggle"></label>
-                    </div>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-              <div class="card-body">
-
-                <!-- Chart -->
-                <div class="chart">
-                  <canvas id="ordersChart" class="chart-canvas"></canvas>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-xl-4">
-
-            <!-- Devices -->
-            <div class="card">
-              <div class="card-header">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h4 class="card-header-title">
-                      Devices
-                    </h4>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Tabs -->
-                    <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-                      <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update='{"data":{"datasets":[{"data":[60,25,15]}]}}'>
-                        <a href="#" class="nav-link active" data-toggle="tab">
-                          All
-                        </a>
-                      </li>
-                      <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update='{"data":{"datasets":[{"data":[15,45,20]}]}}'>
-                        <a href="#" class="nav-link" data-toggle="tab">
-                          Direct
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-              <div class="card-body">
-
-                <!-- Chart -->
-                <div class="chart chart-appended">
-                  <canvas id="devicesChart" class="chart-canvas" data-target="#devicesChartLegend"></canvas>
-                </div>
-
-                <!-- Legend -->
-                <div id="devicesChartLegend" class="chart-legend"></div>
-
-              </div>
-            </div>
-
+          <div class="col-auto">
+            <a href="#!" class="agri-color-bg btn btn-primary d-block d-md-inline-block">
+              Create Farm
+            </a>
           </div>
         </div> <!-- / .row -->
         <div class="row">
-          <div class="col-12 col-lg-6 col-xl">
+          <div class="col-12 col-lg-4 col-md-6">
 
             <!-- Card -->
             <div class="card">
               <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col">
 
-                    <!-- Title -->
-                    <h6 class="card-title text-uppercase text-muted mb-2">
-                      Budget
-                    </h6>
-
-                    <!-- Heading -->
-                    <span class="h2 mb-0">
-                      $24,500
-                    </span>
-
-                    <!-- Badge -->
-                    <span class="badge badge-soft-success mt--1">
-                      +3.5%
-                    </span>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Icon -->
-                    <span class="h2 fe fe-dollar-sign text-muted mb-0"></span>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-lg-6 col-xl">
-
-            <!-- Card -->
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h6 class="card-title text-uppercase text-muted mb-2">
-                      Total Hours
-                    </h6>
-
-                    <!-- Heading -->
-                    <span class="h2 mb-0">
-                      763.5
-                    </span>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Icon -->
-                    <span class="h2 fe fe-briefcase text-muted mb-0"></span>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-lg-6 col-xl">
-
-            <!-- Card -->
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h6 class="card-title text-uppercase text-muted mb-2">
-                      Progress
-                    </h6>
-
-                    <div class="row align-items-center no-gutters">
-                      <div class="col-auto">
-
-                        <!-- Heading -->
-                        <span class="h2 mr-2 mb-0">
-                          84.5%
-                        </span>
-
-                      </div>
-                      <div class="col">
-
-                        <!-- Progress -->
-                        <div class="progress progress-sm">
-                          <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                      </div>
-                    </div> <!-- / .row -->
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Icon -->
-                    <span class="h2 fe fe-clipboard text-muted mb-0"></span>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-lg-6 col-xl">
-
-            <!-- Card -->
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h6 class="card-title text-uppercase text-muted mb-2">
-                      Effective Hourly
-                    </h6>
-
-                    <!-- Heading -->
-                    <span class="h2 mb-0">
-                      $85.50
-                    </span>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Icon -->
-                    <span class="h2 fe fe-clock text-muted mb-0"></span>
-
-                  </div>
-                </div> <!-- / .row -->
-
-              </div>
-            </div>
-
-          </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-12 col-xl-4">
-
-            <!-- Projects -->
-            <div class="card">
-              <div class="card-header">
-                <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Title -->
-                    <h4 class="card-header-title">
-                      Projects
-                    </h4>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Link -->
-                    <a href="#!" class="small">View all</a>
-
-                  </div>
-                </div> <!-- / .row -->
-              </div>
-              <div class="card-body">
-
-                <div class="row align-items-center">
-                  <div class="col-auto">
-
-                    <!-- Avatar -->
-                    <a href="project-overview.html" class="avatar avatar-4by3">
-                      <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
+                <!-- Dropdown -->
+                <div class="dropdown card-dropdown">
+                  <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fe fe-more-vertical"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#!" class="dropdown-item">
+                      Action
                     </a>
-
+                    <a href="#!" class="dropdown-item">
+                      Another action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Something else here
+                    </a>
                   </div>
-                  <div class="col ml--2">
+                </div>
 
-                    <!-- Title -->
-                    <h4 class="card-title mb-1">
-                      <a href="project-overview.html">Homepage Redesign</a>
-                    </h4>
+                <!-- Avatar -->
 
-                    <!-- Time -->
-                    <p class="card-text small text-muted">
-                      <time datetime="2018-05-24">Updated 5hr ago</time>
-                    </p>
 
-                  </div>
-                  <div class="col-auto">
+                <!-- Title -->
+                <h2 class="card-title text-center mb-3">
+                  <a href="team-overview.html">Launchday</a>
+                </h2>
 
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                      <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-more-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#!" class="dropdown-item">
-                          Action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Another action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
-
-                  </div>
-                </div> <!-- / .row -->
+                <!-- Text -->
+                <p class="card-text text-center text-muted mb-4">
+                  Launchday is a SaaS website builder with a focus on quality, easy to build product sites.
+                </p>
 
                 <!-- Divider -->
                 <hr>
 
                 <div class="row align-items-center">
-                  <div class="col-auto">
-
-                    <!-- Avatar -->
-                    <a href="project-overview.html" class="avatar avatar-4by3">
-                      <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
-                    </a>
-
-                  </div>
-                  <div class="col ml--2">
-
-                    <!-- Title -->
-                    <h4 class="card-title mb-1">
-                      <a href="project-overview.html">Travels & Time</a>
-                    </h4>
+                  <div class="col">
 
                     <!-- Time -->
                     <p class="card-text small text-muted">
-                      <time datetime="2018-05-24">Updated 3hr ago</time>
+                      <i class="fe fe-clock"></i> Updated 2hr ago
                     </p>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                      <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-more-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#!" class="dropdown-item">
-                          Action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Another action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
-
-                  </div>
-                </div> <!-- / .row -->
-
-                <!-- Divider -->
-                <hr>
-
-                <div class="row align-items-center">
-                  <div class="col-auto">
-
-                    <!-- Avatar -->
-                    <a href="project-overview.html" class="avatar avatar-4by3">
-                      <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
-                    </a>
-
-                  </div>
-                  <div class="col ml--2">
-
-                    <!-- Title -->
-                    <h4 class="card-title mb-1">
-                      <a href="project-overview.html">Safari Exploration</a>
-                    </h4>
-
-                    <!-- Time -->
-                    <p class="card-text small text-muted">
-                      <time datetime="2018-05-24">Updated 10hr ago</time>
-                    </p>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                      <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-more-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#!" class="dropdown-item">
-                          Action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Another action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
-
-                  </div>
-                </div> <!-- / .row -->
-
-                <!-- Divider -->
-                <hr>
-
-                <div class="row align-items-center">
-                  <div class="col-auto">
-
-                    <!-- Avatar -->
-                    <a href="project-overview.html" class="avatar avatar-4by3">
-                      <img src="assets/img/avatars/projects/project-5.jpg" alt="..." class="avatar-img rounded">
-                    </a>
-
-                  </div>
-                  <div class="col ml--2">
-
-                    <!-- Title -->
-                    <h4 class="card-title mb-1">
-                      <a href="project-overview.html">Personal Site</a>
-                    </h4>
-
-                    <!-- Time -->
-                    <p class="card-text small text-muted">
-                      <time datetime="2018-05-24">Updated 4hr ago</time>
-                    </p>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                      <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-more-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#!" class="dropdown-item">
-                          Action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Another action
-                        </a>
-                        <a href="#!" class="dropdown-item">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
 
                   </div>
                 </div> <!-- / .row -->
 
               </div> <!-- / .card-body -->
-            </div> <!-- / .card -->
+            </div>
 
           </div>
-          <div class="col-12 col-xl-8">
+          <div class="col-12 col-lg-4 col-md-6">
 
-            <!-- Goals -->
+            <!-- Card -->
             <div class="card">
-              <div class="card-header">
+              <div class="card-body">
+
+                <!-- Dropdown -->
+                <div class="dropdown card-dropdown">
+                  <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fe fe-more-vertical"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#!" class="dropdown-item">
+                      Action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Another action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Something else here
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Avatar -->
+
+
+                <!-- Title -->
+                <h2 class="card-title text-center mb-3">
+                  <a href="team-overview.html">Medium Corporation</a>
+                </h2>
+
+                <!-- Text -->
+                <p class="card-text text-center text-muted mb-4">
+                  Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.
+                </p>
+
+                <!-- Divider -->
+                <hr>
+
                 <div class="row align-items-center">
                   <div class="col">
 
-                    <!-- Title -->
-                    <h4 class="card-header-title">
-                      Goals
-                    </h4>
-
-                  </div>
-                  <div class="col-auto">
-
-                    <!-- Button -->
-                    <a href="#!" class="btn btn-sm btn-white">
-                      Export
-                    </a>
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <i class="fe fe-clock"></i> Updated 4hr ago
+                    </p>
 
                   </div>
                 </div> <!-- / .row -->
-              </div>
-              <div class="table-responsive mb-0" data-toggle="lists" data-lists-values='["goal-project", "goal-status", "goal-progress", "goal-date"]'>
-                <table class="table table-sm table-nowrap card-table">
-                  <thead>
-                    <tr>
-                      <th>
-                        <a href="#" class="text-muted sort" data-sort="goal-project">
-                          Goal
-                        </a>
-                      </th>
-                      <th>
-                        <a href="#" class="text-muted sort" data-sort="goal-status">
-                          Status
-                        </a>
-                      </th>
-                      <th>
-                        <a href="#" class="text-muted sort" data-sort="goal-progress">
-                          Progress
-                        </a>
-                      </th>
-                      <th>
-                        <a href="#" class="text-muted sort" data-sort="goal-date">
-                          Due date
-                        </a>
-                      </th>
-                      <th class="text-right">
-                        Team
-                      </th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody class="list">
-                    <tr>
-                      <td class="goal-project">
-                        Update the API
-                      </td>
-                      <td class="goal-status">
-                        <span class="text-warning">●</span> In progress
-                      </td>
-                      <td class="goal-progress">
-                        55%
-                      </td>
-                      <td class="goal-date">
-                        <time datetime="2018-10-24">07/24/18</time>
-                      </td>
-                      <td class="text-right">
-                        <div class="avatar-group">
-                          <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
-                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                            <img src="assets/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
-                            <img src="assets/img/avatars/profiles/avatar-3.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Daniela Dewitt">
-                            <img src="assets/img/avatars/profiles/avatar-4.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="goal-project">
-                        Release v1.2-Beta
-                      </td>
-                      <td class="goal-status">
-                        <span class="text-warning">●</span> In progress
-                      </td>
-                      <td class="goal-progress">
-                        25%
-                      </td>
-                      <td class="goal-date">
-                        <time datetime="2018-10-24">08/26/18</time>
-                      </td>
-                      <td class="text-right">
-                        <div class="avatar-group justify-content-end">
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
-                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                            <img src="assets/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
-                            <img src="assets/img/avatars/profiles/avatar-3.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="goal-project">
-                        GDPR Compliance
-                      </td>
-                      <td class="goal-status">
-                        <span class="text-success">●</span> Completed
-                      </td>
-                      <td class="goal-progress">
-                        100%
-                      </td>
-                      <td class="goal-date">
-                        <time datetime="2018-10-24">06/19/18</time>
-                      </td>
-                      <td class="text-right">
-                        <div class="avatar-group justify-content-end">
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
-                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                            <img src="assets/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
-                            <img src="assets/img/avatars/profiles/avatar-3.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="goal-project">
-                        v1.2 Documentation
-                      </td>
-                      <td class="goal-status">
-                        <span class="text-danger">●</span> Cancelled
-                      </td>
-                      <td class="goal-progress">
-                        0%
-                      </td>
-                      <td class="goal-date">
-                        <time datetime="2018-10-24">06/25/18</time>
-                      </td>
-                      <td class="text-right">
-                        <div class="avatar-group justify-content-end">
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
-                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                            <img src="assets/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="fe fe-more-vertical"></span>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="goal-project">
-                        Plan design offsite
-                      </td>
-                      <td class="goal-status">
-                        <span class="text-success">●</span> Completed
-                      </td>
-                      <td class="goal-progress">
-                        100%
-                      </td>
-                      <td class="goal-date">
-                        <time datetime="2018-10-24">06/30/18</time>
-                      </td>
-                      <td class="text-right">
-                        <div class="avatar-group justify-content-end">
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
-                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                            <img src="assets/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
-                            <img src="assets/img/avatars/profiles/avatar-3.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                          <a href="#!" class="avatar avatar-xs" data-toggle="tooltip" title="Daniela Dewitt">
-                            <img src="assets/img/avatars/profiles/avatar-4.jpg" class="avatar-img rounded-circle border border-white" alt="...">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <div class="dropdown">
-                          <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+
+              </div> <!-- / .card-body -->
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-4 col-md-6">
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+
+                <!-- Dropdown -->
+                <div class="dropdown card-dropdown">
+                  <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fe fe-more-vertical"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#!" class="dropdown-item">
+                      Action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Another action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Something else here
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Avatar -->
+
+
+                <!-- Title -->
+                <h2 class="card-title text-center mb-3">
+                  <a href="team-overview.html">Github</a>
+                </h2>
+
+                <!-- Text -->
+                <p class="card-text text-center text-muted mb-4">
+                  GitHub is a web-based hosting service for version control of code using Git.
+                </p>
+
+                <!-- Divider -->
+                <hr>
+
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <i class="fe fe-clock"></i> Updated 3d ago
+                    </p>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div> <!-- / .card-body -->
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-4 col-md-6">
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-body">
+
+                <!-- Dropdown -->
+                <div class="dropdown card-dropdown">
+                  <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fe fe-more-vertical"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#!" class="dropdown-item">
+                      Action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Another action
+                    </a>
+                    <a href="#!" class="dropdown-item">
+                      Something else here
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Avatar -->
+
+
+                <!-- Title -->
+                <h2 class="card-title text-center">
+                  <a href="team-overview.html">Slack</a>
+                </h2>
+
+                <!-- Text -->
+                <p class="card-text text-center text-muted mb-4">
+                  Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.
+                </p>
+
+                <!-- Divider -->
+                <hr>
+
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Time -->
+                    <p class="card-text small text-muted">
+                      <i class="fe fe-clock"></i> Updated 1w ago
+                    </p>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div> <!-- / .card-body -->
+            </div>
+
+          </div>
+          <div class="col-12">
+
+            <!-- Card -->
+            <div class="card card-inactive">
+              <div class="card-body text-center">
+
+                <!-- Image -->
+                <img src="assets/img/illustrations/scale.svg" alt="..." class="img-fluid" style="max-width: 182px;">
+
+                <!-- Title -->
+                <h1>
+                  No farms yet.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-muted">
+                  Create a farm to find our more about your farm.
+                </p>
+
+                <!-- Button-->
+                <a href="#!" class="agri-color-bg btn btn-primary">
+                  Create Farm
+                </a>
+
               </div>
             </div>
 
           </div>
         </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
-    </div> <!-- / .main-content -->
-
+      </div> <!-- / .container-fluid -->
+    </div>
     <!-- JAVASCRIPT
     ================================================== -->
     <!-- Libs JS -->
