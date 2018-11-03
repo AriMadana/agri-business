@@ -1130,7 +1130,7 @@
                   Create a farm to find our more about your farm.
                 </p>
 
-                <!-- Button -->
+                <!-- Button-->
                 <a href="#!" class="agri-color-bg btn btn-primary">
                   Create Farm
                 </a>
