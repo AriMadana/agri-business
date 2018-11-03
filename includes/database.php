@@ -22,7 +22,7 @@ class Database {
 	public function query($sql) {
 
 		$result = $this -> connection ->query($sql);
-		if(!$result) {
+        if(!$result) {
 			die("Query Fail.".mysqli_error($this->connection));
 		}
 
@@ -36,6 +36,7 @@ class Database {
 		}
 	}
 
+    // escape variables for security
 	public function escape_string($string) {
 		return $this -> connection -> real_escape_string($string);
 	}

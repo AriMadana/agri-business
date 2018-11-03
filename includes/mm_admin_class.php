@@ -8,8 +8,8 @@ class MM_Admin_Class extends Db_object {
 	public $admin_id;
 	public $admin_fname;
 	public $admin_lname;
-  public $admin_pf;
-  public $admin_cv;
+    public $admin_pf;
+    public $admin_cv;
 	public $admin_pass;
 	public $admin_gender;
 	public $admin_birth;
@@ -20,14 +20,39 @@ class MM_Admin_Class extends Db_object {
 	public function user_match($email, $password) {
 		global $database;
 		$db_table = static::$db_table;
-    $password = md5($password);
+        $password = md5($password);
 		$email = $database -> escape_string($email);
-    $password = $database -> escape_string($password);
+        $password = $database -> escape_string($password);
 		$result = $this -> find_by_query("SELECT `admin_id` FROM `$db_table` WHERE `admin_email` = '$email' AND `admin_pass` = '$password';");
 		//$count = mysqli_num_rows($query);
 		// return ($result > 0) ? true : false;
     return $result['admin_id'];
 	}
+
+    public function isPresentUsername($email) {
+        global $database;
+        $db_table = static::$db_table;
+        $email = $database->escape_string($email);
+        $isPresent = $this->count_by_query("SELECT `admin_email` FROM `$db_table` WHERE `admin_email` = '$email';");
+
+        if($isPresent == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isCorrectPassword($password) {
+        global $database;
+        $db_table = static::$db_table;
+        $password = md5($password);
+        $password = $database->escape_string($password);
+        $isCorrect = $this->count_by_query("SELECT `admin_pass` FROM `$db_table` WHERE `admin_pass` = '$password';");
+
+        if($isCorrect == 1) {
+            return true;
+        }
+        return false;
+    }
 
   public function user_info_from_userid($user_id) {
 		global $database;
@@ -36,7 +61,7 @@ class MM_Admin_Class extends Db_object {
 		$result = $this -> find_by_query("SELECT * FROM `$db_table` WHERE `admin_id` = $user_id;");
 		//$count = mysqli_num_rows($query);
 		// return ($result > 0) ? true : false;
-    return $result;
+        return $result;
 	}
 }
 	// public function user_id_from_username($username) {

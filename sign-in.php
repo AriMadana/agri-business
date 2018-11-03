@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="assets/css/theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Dashkit</title>
+    <style>
+        .error {
+            color: #ff0000;
+        }
+    </style>
   </head>
   <body ng-app="myApp" class="d-flex align-items-center bg-white border-top-2 border-primary">
 
@@ -42,6 +47,19 @@
           <p class="text-muted text-center mb-5">
             Free access to our dashboard.
           </p>
+
+            <?php
+                if(isset($_GET['error'])) {
+                    switch($_GET['error']) {
+                        case 'usernameandpasswordnotmatch':
+                            echo '<span class="text-danger small">Username and password do not match.</span>';
+                            break;
+                        case 'nomemberinformation':
+                            echo '<span class="text-danger small">No member information.</span>';
+                            break;
+                    }
+                }
+            ?>
 
           <!-- Form -->
           <form name="signIn" action="login-conf.php" method="post" ng-controller="signinCtrl">
