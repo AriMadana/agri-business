@@ -121,7 +121,7 @@
             <!-- Link -->
             <div class="text-center">
               <small class="text-muted text-center">
-                Don't have an account yet? <a href="sign-up-illustration.html">Sign up</a>.
+                Don't have an account yet? <a href="sign-up-illustration.php">Sign up</a>.
               </small>
             </div>
 
