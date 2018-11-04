@@ -45,7 +45,7 @@
             </p>
 
             <!-- Form -->
-            <form action="sign-in-conf.php" method="post">
+            <form action="sign-up-conf.php" method="post">
 
                 <!-- Name -->
                 <div class="form-group">
@@ -56,7 +56,7 @@
                     </label>
 
                     <!-- Input -->
-                    <input id="username" name="name" type="text" class="form-control" placeholder="John Doe" pattern="[A-Za-z]" style="text-transform: capitalize;" required="required"/>
+                    <input id="username" name="username" type="text" class="form-control" placeholder="John Doe" style="text-transform: capitalize;" required="required"/>
                 </div>
 
                 <!-- Phone -->
@@ -140,7 +140,7 @@
                 </div>
 
         <!-- Submit -->
-        <button id="sign_up" class="btn btn-lg btn-block btn-primary mb-3" disabled>
+        <button type="submit" name="signup" id="sign_up" class="btn btn-lg btn-block btn-primary mb-3" disabled>
           Sign up
         </button>
 

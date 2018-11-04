@@ -3,7 +3,7 @@
 class MM_Admin_Class extends Db_object {
 
 	protected static $db_table = "ab_admin";
-	protected static $db_fields = array('admin_id', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active');
+	protected static $db_fields = array('admin_id', 'admin_email', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active');
 
 	public $admin_id;
 	public $admin_fname;
@@ -54,6 +54,38 @@ class MM_Admin_Class extends Db_object {
         return false;
     }
 
+    public function isInsertSuccessful($username, $phone, $email, $password) {
+        global $database;
+        $db_table = static::$db_table;
+
+        $username = $database->escape_string($username);
+        $phone    = $database->escape_string($phone);
+        $email    = $database->escape_string($email);
+        $password = $database->escape_string($password);
+        $password = md5($password); //->OK
+
+        /*for($i = 0; $i < count($values); $i++) {
+            $values[i] = $database->escape_string($values[i]);
+        }
+        $values[3] = md5($values[3]);
+
+        $isInsert = $this->insert($db_table, array(
+            static::$db_fields[2] => $values[0], //name
+            static::$db_fields[9] => $values[1], //phone
+            static::$db_fields[1] => $values[2], //email
+            static::$db_fields[6] => $values[3]  //password
+        ));*/
+
+        $sql = "INSERT INTO `$db_table` (`admin_fname`, `admin_phone`, `admin_email`, `admin_pass`) VALUES ('$username', '$phone', '$email', '$password')"; //-> OK
+
+        $isInsert = $this->insert_query($sql); //-> OK
+
+        if($isInsert) {
+            return true;
+        }
+        return false;
+    }
+
   public function user_info_from_userid($user_id) {
 		global $database;
 		$db_table = static::$db_table;
@@ -63,6 +95,15 @@ class MM_Admin_Class extends Db_object {
 		// return ($result > 0) ? true : false;
         return $result;
 	}
+
+ /*   public function sendMail($to, array $message) {
+
+        $mailtouser = mail($to, $message[0], $message[1], $message[2]);
+    }
+
+    public function randomNumber() {
+        return rand(100000, 999999);
+    }*/
 }
 	// public function user_id_from_username($username) {
 	// 	global $database;
