@@ -86,11 +86,41 @@ class Db_object {
       }
       return $object_array;
     }
+
     public static function insert_query($sql) {
       global $database;
       $result = $database -> query($sql);
       return $result;
     }
+
+    /*public function insert($table, $fields = array()) {
+        if(count($fields)) {
+            $keys = array_keys($fields);
+            $values = '';
+            $x = 1;
+
+            echo $fields[2];
+
+            foreach($fields as $field) {
+                $values .= '?';
+                if($x < count($fields)) {
+                    $values .= ', ';
+                }
+                $x++;
+            }
+
+            $sql = "INSERT INTO `$table` (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+
+            $result = $database->query_by_array($sql, array $fields);
+            //--------------------------^ this fucking shit is not ok YET !!!!!!!!! (can't still not transfer to query_by_array)
+
+            if($result) {
+                return true;
+            }
+            return false;
+        }
+    }*/
+
 
     private static function instantiation($record) {
 
