@@ -1,0 +1,76 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8">
+
+        <!-- Header -->
+        <div class="header mt-md-5">
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col">
+
+                <!-- Pretitle -->
+                <h6 class="header-pretitle">
+                  New Farm
+                </h6>
+
+                <!-- Title -->
+                <h1 class="header-title">
+                  Create a new farm
+                </h1>
+
+              </div>
+              <div class="col-auto">
+                <a href="#/!" class="btn btn-primary d-block d-md-inline-block">
+                  < Back
+                </a>
+              </div>
+            </div> <!-- / .row -->
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="mb-4">
+
+          <!-- Project name -->
+          <div class="form-group">
+            <label>
+              Farm name
+            </label>
+            <input id="input_new_farm_name" type="text" class="form-control" ng-modal="input_new_farm_name">
+          </div>
+
+          <!-- Project description -->
+          <div class="form-group">
+            <label class="mb-1">
+              Project description
+            </label>
+            <small class="form-text text-muted">
+              This is how others will learn about the project, so make it good!
+            </small>
+            <div data-toggle="quill"></div>
+          </div>
+
+          <div style="width: 100%;" class="mb-5">
+            <div id='map' style='width: 400px; height: 300px;'></div>
+            <pre id='coordinates' class='coordinates'></pre>
+          </div>
+
+
+          <!-- Buttons -->
+          <a href="#!farm-final" class="btn btn-block btn-primary" ng-click="farmFinal()">
+            Next >
+          </a>
+          <a href="#" class="btn btn-block btn-link text-muted">
+            Cancel this farm
+          </a>
+
+        </form>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container-fluid -->
+</div> <!-- / .main-content -->
+<script>
+</script>
