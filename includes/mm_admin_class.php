@@ -3,13 +3,13 @@
 class MM_Admin_Class extends Db_object {
 
 	protected static $db_table = "ab_admin";
-	protected static $db_fields = array('admin_id', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active');
+	protected static $db_fields = array('admin_id', 'admin_email', 'admin_fname', 'admin_lname', 'admin_pf', 'admin_cv', 'admin_pass', 'admin_gender', 'admin_birth', 'admin_phone', 'admin_address', 'admin_active');
 
 	public $admin_id;
 	public $admin_fname;
 	public $admin_lname;
-  public $admin_pf;
-  public $admin_cv;
+    public $admin_pf;
+    public $admin_cv;
 	public $admin_pass;
 	public $admin_gender;
 	public $admin_birth;
@@ -20,14 +20,71 @@ class MM_Admin_Class extends Db_object {
 	public function user_match($email, $password) {
 		global $database;
 		$db_table = static::$db_table;
-    $password = md5($password);
+        $password = md5($password);
 		$email = $database -> escape_string($email);
-    $password = $database -> escape_string($password);
+        $password = $database -> escape_string($password);
 		$result = $this -> find_by_query("SELECT `admin_id` FROM `$db_table` WHERE `admin_email` = '$email' AND `admin_pass` = '$password';");
 		//$count = mysqli_num_rows($query);
 		// return ($result > 0) ? true : false;
     return $result['admin_id'];
 	}
+
+    public function isPresentUsername($email) {
+        global $database;
+        $db_table = static::$db_table;
+        $email = $database->escape_string($email);
+        $isPresent = $this->count_by_query("SELECT `admin_email` FROM `$db_table` WHERE `admin_email` = '$email';");
+
+        if($isPresent == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isCorrectPassword($password) {
+        global $database;
+        $db_table = static::$db_table;
+        $password = md5($password);
+        $password = $database->escape_string($password);
+        $isCorrect = $this->count_by_query("SELECT `admin_pass` FROM `$db_table` WHERE `admin_pass` = '$password';");
+
+        if($isCorrect == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isInsertSuccessful($username, $phone, $email, $password) {
+        global $database;
+        $db_table = static::$db_table;
+
+        $username = $database->escape_string($username);
+        $phone    = $database->escape_string($phone);
+        $email    = $database->escape_string($email);
+        $password = $database->escape_string($password);
+        $password = md5($password); //->OK
+
+        /*for($i = 0; $i < count($values); $i++) {
+            $values[i] = $database->escape_string($values[i]);
+        }
+        $values[3] = md5($values[3]);
+
+        $isInsert = $this->insert($db_table, array(
+            static::$db_fields[2] => $values[0], //name
+            static::$db_fields[9] => $values[1], //phone
+            static::$db_fields[1] => $values[2], //email
+            static::$db_fields[6] => $values[3]  //password
+        ));*/
+
+        $sql = "INSERT INTO `$db_table` (`admin_fname`, `admin_phone`, `admin_email`, `admin_pass`) VALUES ('$username', '$phone', '$email', '$password')"; //-> OK
+
+        $isInsert = $this->insert_query($sql); //-> OK
+
+        if($isInsert) {
+            return true;
+        }
+        return false;
+    }
 
   public function user_info_from_userid($user_id) {
 		global $database;
@@ -36,8 +93,17 @@ class MM_Admin_Class extends Db_object {
 		$result = $this -> find_by_query("SELECT * FROM `$db_table` WHERE `admin_id` = $user_id;");
 		//$count = mysqli_num_rows($query);
 		// return ($result > 0) ? true : false;
-    return $result;
+        return $result;
 	}
+
+ /*   public function sendMail($to, array $message) {
+
+        $mailtouser = mail($to, $message[0], $message[1], $message[2]);
+    }
+
+    public function randomNumber() {
+        return rand(100000, 999999);
+    }*/
 }
 	// public function user_id_from_username($username) {
 	// 	global $database;

@@ -1,19 +1,28 @@
 <?php
   include 'includes/init.php';
+
+//check if the user clicked the submitt button named 'signin'
   if (isset($_POST['signin'])) {
     $login_email = $_POST['email'];
     $login_password = $_POST['password'];
 
-    $user_id = $mm_admin_class -> user_match($login_email, $login_password);
-    if($user_id != null) {
-      $_SESSION['user_id'] = $user_id;
-      $user_infos = $mm_admin_class -> user_info_from_userid($user_id);
-      $_SESSION['school_id'] = $user_infos['admin_school'];
-      header('Location: index.php');
+    $username = $mm_admin_class-> isPresentUsername($login_email);
+    $user_id  = $mm_admin_class-> user_match($login_email, $login_password);
+
+    if(!$username) {
+        redirectSelf('sign-in.php', 'nomemberinformation');
+    } else if(!$mm_admin_class-> isCorrectPassword($login_password)) {
+        redirectSelf('sign-in.php', 'usernameandpasswordnotmatch'); //wrongpassword
+    } else if($user_id != null) {
+        $_SESSION['user_id'] = $user_id;
+        $user_infos = $mm_admin_class -> user_info_from_userid($user_id);
+        $_SESSION['school_id'] = $user_infos['admin_school'];
+        redirect('index.php');
     } else {
-      echo 'Login ERROR!';
-    };
+        redirectSelf('sign-in.php', 'error');
+    }
   }
+
   // include 'includes/init.php';
   // if (isset($_POST['signin'])) {
   //   $login_email = $_POST['email'];

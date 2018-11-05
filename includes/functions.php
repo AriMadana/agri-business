@@ -22,6 +22,8 @@ function object_to_array($data){
 
 function is_valid_chapno($chap_num){
 	$chap_num = strtoupper($chap_num);
+
+    //strpos->finds the position of the first occurrence of a string inside another string.
 	if(strpos($chap_num, 'CHAPTER-') === 0){
 		return true;
 	}
@@ -36,6 +38,7 @@ function is_valid_grade($grade){
 	else return false;
 }
 
+//must have at least an uppercase letter->?
 function is_valid_pwd($password){
 	$result = false;
 	$i = 0;
@@ -62,7 +65,11 @@ function is_valid_phone($phone){
 }
 
 function redirect($path) {
-	header ("Location: $path");
+	header ("Location: " . $path);
+}
+
+function redirectSelf($path, $error) {
+	header ("Location: " . $path . "?error=" . $error);
 }
 
 function array_sanitize(&$item){
