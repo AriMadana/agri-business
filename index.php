@@ -958,23 +958,28 @@
           $rootScope.$on('$routeChangeStart', function () {
 
               //show loading gif
-              console.log('start');
               $rootScope.start();
+              $rootScope.fakeIntro = true;
+
 
 
           });
           $rootScope.$on('$routeChangeSuccess', function () {
 
               //hide loading gif
-              console.log('success');
-              $rootScope.complete();
+              $timeout(function() {
+                $rootScope.complete();
+                $rootScope.fakeIntro = false;
+              }, 300);
 
           });
           $rootScope.$on('$routeChangeError', function () {
 
               //hide loading gif
-              console.log('error');
-              $rootScope.complete();
+              $timeout(function() {
+                $rootScope.complete();
+                $rootScope.fakeIntro = false;
+              }, 300);
 
           });
       });
