@@ -960,6 +960,11 @@
               //show loading gif
               console.log('start');
               $rootScope.start();
+              $rootScope.fakeIntro = true;
+              $timeout(function() {
+                $rootScope.complete();
+                $rootScope.fakeIntro = false;
+              }, 750);
 
 
           });
