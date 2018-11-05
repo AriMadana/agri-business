@@ -57,6 +57,11 @@
                         case 'incorrectcode':
                             echo '<span class="text-danger small">Invalid Code</span>';
                             break;
+                        case 'codesentsuccessfully':
+                            echo '<span class="text-success small">Code Sent Successfully</span>';
+                            break;
+                        case 'oneminutetimeout':
+                            echo '<span class="text-danger small">OTP expires! Click resend code.</span>';
                     }
                 }
             ?>
@@ -82,7 +87,7 @@
             <!-- Link -->
             <div class="text-center">
               <small class="text-muted text-center">
-                Didn't receive code? <a href="#" name="resend">Resend</a>.
+                Didn't receive code? <a href="verifyaccount-conf.php" class="text-primary" name="resend">Resend</a>.
               </small>
             </div>
 

@@ -15,39 +15,34 @@ if(isset($_POST['signup'])) {
 
     } else if (!$usernameAlreadyTaken) {
         //------ verify email ------//
-        /*session_start();
-        $to      = $email;
+
+        $to      = "bloodseeker@mmhighschool.ml"; //sender's
+        $from    = $email; //receiver's
         $subject = "Your Registration Verification Code to Argi-Business";
-        $code    = "OTP: " . $mm_admin_class->randomNumber();
-        $header  = "From:mailtohtetphyonaing@gmail.com \r\n" . "Argi-Bussiness" . "Content-type: text/html \r\n";
+        $code    = $mm_admin_class->randomNumber();
+        $message = "OTP: " . $code;
+        $headers = "From: " . $to;
 
-        $message = array($subject, $code, $header);
+        $isSentMail = mail($from, $subject, $message, $headers);
 
-        $isSentMail = mail($to, $subject, $code, $header);
-        //$isSentMail = $mm_admin_class->sendMail($to, $message);
+        //$isSentMail = $mm_admin_class->isMailSentSuccessful($email);
 
-        if(!$isSentMail) {
-            redirectSelf('sign-up-illustration.php', 'somekindoferrorreinsendingmail');
-        } else {
-
+        if($isSentMail) { //<-----CHANGE BACK to TRUE (NOT for testing in localhost)
+            session_start();
             $_SESSION['name']  = $username;
             $_SESSION['phone'] = $phone;
             $_SESSION['email'] = $email;
-            $_SESSION['otp']   = $code;
+            $_SESSION['password'] = $password;
+            $_SESSION['last_activity'] = time();
+            $_SESSION['otp']   = $code; //$_SESSION['otp'] = $code;
+
             redirect('verifyaccount.php');
-        }*/
+        } else {
+            redirectSelf('sign-up-illustration.php', 'somekindoferrorreinsendingmail');
+        }
 
         /*$values = array($username, $phone, $email, $password);
         $insertSuccessful = $mm_admin_class->isInsertSuccessful($values);*/
-        $insertSuccessful = $mm_admin_class->isInsertSuccessful($username, $phone, $email, $password);
-
-        if(!$insertSuccessful) {
-            redirectSelf('sign-up-illustration.php', 'signuperror');
-        } else if($insertSuccessful) {
-            redirect('sign-in.php');
-        } else {
-            redirectSelf('sign-up-illustration.php', 'somekindoferrorrr');
-        }
     } else {
 
         redirectSelf('sign-up-illustration.php', 'error');

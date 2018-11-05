@@ -86,6 +86,23 @@ class MM_Admin_Class extends Db_object {
         return false;
     }
 
+    public function isMailSentSuccessful ($email) {
+        $to      = "bloodseeker@mmhighschool.ml"; //sender's
+        $from    = $email; //receiver's
+        $subject = "Your Registration Verification Code to Argi-Business";
+        $code    = $this->randomNumber();
+        $message = "OTP: " . $code;
+        $headers = "From: " . $to;
+
+        $isSentMail = mail($from, $subject, $message, $headers);
+
+        if($isSentMail) {
+            $_SESSION['otp'] = $code;
+            return true;
+        }
+        return false;
+    }
+
   public function user_info_from_userid($user_id) {
 		global $database;
 		$db_table = static::$db_table;
@@ -96,14 +113,9 @@ class MM_Admin_Class extends Db_object {
         return $result;
 	}
 
- /*   public function sendMail($to, array $message) {
-
-        $mailtouser = mail($to, $message[0], $message[1], $message[2]);
-    }
-
     public function randomNumber() {
         return rand(100000, 999999);
-    }*/
+    }
 }
 	// public function user_id_from_username($username) {
 	// 	global $database;

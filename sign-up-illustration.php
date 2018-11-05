@@ -16,7 +16,49 @@
     <link rel="stylesheet" href="assets/css/theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Dashkit</title>
-
+    <style>
+            #info-message {
+                margin-top: 25px;
+                font-size: 21px;
+                text-align: center;
+                animation: fadein 8s;
+                -moz-animation: fadein 8s; /* Firefox */
+                -webkit-animation: fadein 8s; /* Safari and Chrome */
+                -o-animation: fadein 8s; /* Opera */
+            }
+                @keyframes fadein {
+                    from {
+                        opacity:1;
+                    }
+                    to {
+                        opacity:0.7;
+                    }
+                }
+                @-moz-keyframes fadein { /* Firefox */
+                    from {
+                        opacity:1;
+                    }
+                    to {
+                        opacity:0.7;
+                    }
+                }
+                @-webkit-keyframes fadein { /* Safari and Chrome */
+                    from {
+                        opacity:1;
+                    }
+                    to {
+                        opacity:0.7;
+                    }
+                }
+                @-o-keyframes fadein { /* Opera */
+                    from {
+                        opacity:1;
+                    }
+                    to {
+                        opacity: 0.7;
+                    }
+                }
+    </style>
 </head>
 <body class="d-flex align-items-center bg-white border-top-2 border-primary">
 
@@ -31,6 +73,16 @@
         </div>
 
         </div>
+
+        <?php
+                if(isset($_GET['error'])) {
+                    switch($_GET['error']) {
+                        case 'mailsendingerror':
+                            echo '<span id="info-message" class="text-white bg-danger small rounded">We have problems to send to your email. Please refill the valid information.</span>';
+                            break;
+                    }
+                }
+            ?>
 
         <div class="col-12 col-md-5 col-xl-4 order-md-1 my-5">
 
@@ -180,6 +232,10 @@
         return pattern.test(value);
     }
     $('#username').bind('keypress', validateName);
+
+    setTimeout(function(){
+        document.getElementById('info-message').style.display = 'none';
+    }, 8000);
 
     $(document).ready(function(){
         var checker = 'false';
