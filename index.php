@@ -24,8 +24,13 @@
     <link rel="stylesheet" href="assets/css/theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- <script src="assets/js/ngProgress.js"></script>
+    <link rel="stylesheet" href="assets/css/ngProgress.css"> -->
+    <link rel='stylesheet' href='assets/src/loading-bar.css' type='text/css'/>
+    <script type='text/javascript' src='assets/src/loading-bar.js'></script>
     <style>
       #map {
         width:100% !important;
@@ -828,10 +833,10 @@
     <!-- Theme JS -->
     <script src="assets/js/theme.min.js"></script>
     <script>
-
       var inputNewFarmName = '';
-      var app = angular.module("myApp", ["ngRoute"]);
-      app.config(function($routeProvider) {
+      var app = angular.module("myApp", ['chieffancypants.loadingBar', 'ngRoute', 'ngAnimate']);
+      app.config(function($routeProvider, cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = true;
         $routeProvider
         .when("/", {
             templateUrl : "profile-farms.htm"
@@ -846,10 +851,152 @@
         });
       });
 
+      // app.controller('myCtrl', function ($scope, $http, $timeout, cfpLoadingBar) {
+      //   $scope.posts = [];
+      //   $scope.section = null;
+      //   $scope.subreddit = null;
+      //   $scope.subreddits = ['cats', 'pics', 'funny', 'gaming', 'AdviceAnimals', 'aww'];
+      //
+      //   var getRandomSubreddit = function() {
+      //     var sub = $scope.subreddits[Math.floor(Math.random() * $scope.subreddits.length)];
+      //
+      //     // ensure we get a new subreddit each time.
+      //     if (sub == $scope.subreddit) {
+      //       return getRandomSubreddit();
+      //     }
+      //
+      //     return sub;
+      //   };
+      //
+      //   $scope.fetch = function() {
+      //     $scope.subreddit = getRandomSubreddit();
+      //     $http.jsonp('http://www.reddit.com/r/' + $scope.subreddit + '.json?limit=50&jsonp=JSON_CALLBACK').success(function(data) {
+      //       $scope.posts = data.data.children;
+      //     });
+      //   };
+      //
+      //   $scope.start = function() {
+      //     cfpLoadingBar.start();
+      //   };
+      //
+      //   $scope.complete = function () {
+      //     cfpLoadingBar.complete();
+      //   }
+      //
+      //
+      //   // fake the initial load so first time users can see it right away:
+      //   $scope.start();
+      //   $scope.fakeIntro = true;
+      //   $timeout(function() {
+      //     $scope.complete();
+      //     $scope.fakeIntro = false;
+      //   }, 750);
+      //
+      // });
+
+
+
+
+
+
+
+
+      /*CONFIG*/
+      app.run(function ($rootScope, $location,$route, $http, $timeout, cfpLoadingBar) {
+
+        $rootScope.posts = [];
+        $rootScope.section = null;
+        $rootScope.subreddit = null;
+        $rootScope.subreddits = ['cats', 'pics', 'funny', 'gaming', 'AdviceAnimals', 'aww'];
+
+        var getRandomSubreddit = function() {
+          var sub = $rootScope.subreddits[Math.floor(Math.random() * $rootScope.subreddits.length)];
+
+          // ensure we get a new subreddit each time.
+          if (sub == $rootScope.subreddit) {
+            return getRandomSubreddit();
+          }
+
+          return sub;
+        };
+
+        $rootScope.fetch = function() {
+          $rootScope.subreddit = getRandomSubreddit();
+          $http.jsonp('http://www.reddit.com/r/' + $rootScope.subreddit + '.json?limit=50&jsonp=JSON_CALLBACK').success(function(data) {
+            $rootScope.posts = data.data.children;
+          });
+        };
+
+        $rootScope.start = function() {
+          cfpLoadingBar.start();
+        };
+
+        $rootScope.complete = function () {
+          cfpLoadingBar.complete();
+        }
+
+
+        // fake the initial load so first time users can see it right away:
+        $rootScope.start();
+        $rootScope.fakeIntro = true;
+        $timeout(function() {
+          $rootScope.complete();
+          $rootScope.fakeIntro = false;
+        }, 750);
+
+
+
+
+
+
+          $rootScope.config = {};
+          $rootScope.config.app_url = $location.url();
+          $rootScope.config.app_path = $location.path();
+          $rootScope.layout = {};
+          $rootScope.layout.loading = false;
+
+          $rootScope.$on('$routeChangeStart', function () {
+
+              //show loading gif
+              console.log('start');
+              $rootScope.start();
+
+
+          });
+          $rootScope.$on('$routeChangeSuccess', function () {
+
+              //hide loading gif
+              console.log('success');
+              $rootScope.complete();
+
+          });
+          $rootScope.$on('$routeChangeError', function () {
+
+              //hide loading gif
+              console.log('error');
+              $rootScope.complete();
+
+          });
+      });
       app.controller("new-farmCtrl", function ($scope) {
 
         $scope.farmFinal = function() {
           inputNewFarmName = $('#input_new_farm_name').val();
+          var lngLat = marker.getLngLat();
+          console.log(lngLat.lng + ' ' + lngLat.lat);
+          var proxy = 'https://cors-anywhere.herokuapp.com/';
+          $.ajax({
+            url: proxy + "https://api.darksky.net/forecast/50cc33876eb66559b91b065db478440b/" + lngLat.lat + "," + lngLat.lng,
+            type: 'get',
+            success: function(response) {
+              console.log(response);
+            },
+            error: function(xhr, desc, err) {
+              // console.log(xhr + "\n" + err);
+            },
+      			complete: function() {
+      			}
+          });
         };
         mapboxgl.accessToken = 'pk.eyJ1IjoiN2hlNHIxc2UiLCJhIjoiY2prcXpzdTV6MXpwMjN1czc2eG5uZjd6bSJ9.P4KTUArF5MU9eY-WrOCJdg';
         var map = new mapboxgl.Map({
